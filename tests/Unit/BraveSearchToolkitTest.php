@@ -221,7 +221,7 @@ test('brave_search sends correct headers and query parameters', function () {
     expect($capturedOptions['normalized_headers'])->not->toHaveKey('accept-encoding');
 });
 
-test('brave_search caps count at 20', function () {
+test('brave_search rejects count above 20 before request execution', function () {
     $capturedOptions = [];
 
     $mockClient = new MockHttpClient(function (string $method, string $url, array $options) use (&$capturedOptions): MockResponse {
@@ -232,9 +232,12 @@ test('brave_search caps count at 20', function () {
     $toolkit = new BraveSearchToolkit(apiKey: 'test-key', httpClient: $mockClient);
     $tool = $toolkit->tools()[0];
 
-    $tool->execute(['query' => 'test', 'count' => 50]);
+    $result = $tool->execute(['query' => 'test', 'count' => 50]);
 
-    expect($capturedOptions['query']['count'])->toBe(20);
+    expect($result->status)->toBe(ToolResultStatus::Error)
+        ->and($result->content)->toContain('Parameter "count" must be at most 20');
+
+    expect($capturedOptions)->toBe([]);
 });
 
 test('brave_search handles HTTP errors gracefully', function () {
