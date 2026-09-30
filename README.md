@@ -10,7 +10,7 @@ A [Brave Search API](https://brave.com/search/api/) toolkit for [Coqui](https://
 ## Installation
 
 ```bash
-composer require coquibot/coqui-toolkit-brave-search
+composer require carmelosantana/coqui-brave-search
 ```
 
 When installed alongside Coqui, the toolkit is **auto-discovered** via Composer's `extra.php-agents.toolkits` — no manual registration needed.
@@ -81,7 +81,7 @@ echo $result->content;
 ## Development
 
 ```bash
-git clone https://github.com/coquibot/coqui-brave-search.git
+git clone https://github.com/carmelosantana/coqui-brave-search.git
 cd coqui-brave-search
 composer install
 ```

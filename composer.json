@@ -1,5 +1,5 @@
 {
-    "name": "coquibot/coqui-toolkit-brave-search",
+    "name": "carmelosantana/coqui-brave-search",
     "description": "Brave Search toolkit for Coqui — web and news search via the Brave Search API",
     "type": "library",
     "license": "MIT",
