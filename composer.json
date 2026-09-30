@@ -1,5 +1,5 @@
 {
-    "name": "coquibot/coqui-toolkit-brave-search",
+    "name": "carmelosantana/coqui-brave-search",
     "description": "Brave Search toolkit for Coqui — web and news search via the Brave Search API",
     "type": "library",
     "license": "MIT",
@@ -23,6 +23,9 @@
         "carmelosantana/php-agents": "^0.13",
         "pestphp/pest": "^3.0",
         "phpstan/phpstan": "^2.0"
+    },
+    "replace": {
+        "coquibot/coqui-toolkit-brave-search": "self.version"
     },
     "autoload": {
         "psr-4": {
